@@ -8,5 +8,6 @@ export const config = {
         database: process.env.DATABASE_DATABASE,
         logging: false,
     },
-    jwtPrivateKey: process.env.JWT_PRIVATE_KEY
+    jwtPrivateKey: process.env.JWT_PRIVATE_KEY,
+    defaultUrl: process.env.CURRENT_URL
 };
