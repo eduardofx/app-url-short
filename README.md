@@ -24,7 +24,11 @@ https://appurlshort.herokuapp.com/documentation/
 ![Panel](https://i.ibb.co/gFCZPcS/1.png)
 
 
+Test
+* Verifique os dados no arquivo mock test-data.ts
+> npm run test
 
+![Panel](https://i.ibb.co/dKRKcpz/Sem-t-tulo.png)
 
 - [x] Typescript
 - [x] Nestjs

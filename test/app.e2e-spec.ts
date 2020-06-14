@@ -4,8 +4,8 @@ import { AppModule } from './../src/app.module';
 import { INestApplication, ValidationPipe, HttpStatus } from '@nestjs/common';
 import { Sequelize } from 'sequelize-typescript';
 import { ConfigService } from './../src/shared/config/config.service';
-import { Post } from './../src/posts/post.entity';
 import { User } from './../src/users/user.entity';
+import { Url } from './../src/url/url.entity'
 import {
     createUserDto1,
     createUserDto2,
@@ -16,6 +16,8 @@ import {
     userLoginRequestDto1,
     userLoginRequestDto2,
     userLoginRequestDto3,
+    createUrlDto,
+    urlResponseDto1
 } from './test-data';
 
 describe('/', () => {
@@ -35,7 +37,7 @@ describe('/', () => {
                             configService.sequelizeOrmConfig,
                         );
 
-                        sequelize.addModels([User, Post]);
+                        sequelize.addModels([User,Url]);
 
                         return sequelize;
                     },
@@ -48,6 +50,15 @@ describe('/', () => {
         app.useGlobalPipes(new ValidationPipe());
         await app.init();
     });
+
+    describe('/url', ()=>{
+        it('should return 401 if url is created, not token', () => {
+            return request(app.getHttpServer())
+                .post('/url')
+                .send(createUrlDto)
+                .expect(HttpStatus.UNAUTHORIZED)
+        });
+    })
 
     describe('/users', () => {
         describe('POST /register', () => {
