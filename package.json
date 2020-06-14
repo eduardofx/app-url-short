@@ -17,11 +17,11 @@
         "db:seed-prod": "ts-node node_modules/.bin/sequelize db:seed:all --seeders-path db/seeders-prod",
         "db:reset": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed-dev && npm run db:seed-prod",
         "start:old": "ts-node -r tsconfig-paths/register src/main.ts",
-        "start": "node dist/main.js",
+        "start": "node dist/src/main.js",
         "start:dev": "nodemon",
         "start:debug": "nodemon --config nodemon-debug.json",
         "prestart:prod": "rimraf dist && npm run build",
-        "start:prod": "node dist/main.js",
+        "start:prod": "node dist/src/main.js",
         "lint": "tslint -p tsconfig.json -c tslint.json",
         "test": "jest --config ./test/jest-e2e.json"
     },
