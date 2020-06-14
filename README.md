@@ -1,21 +1,24 @@
 #### App Short URL
 _______
 
+
 production: ```https://appurlshort.herokuapp.com```
+
 local: ```http://localhost:3000```
 
 
->  with docker:
-docker-compose build
-docker-compose up -d
+with docker:
 
->or
-npm i
-npm run start:dev
+>docker-compose build
+>docker-compose up -d
 
-> Documentação 
+run with npm 
+>npm i
+>npm run start:dev
 
-https://appurlshort.herokuapp.com/documentation/
+Documentação 
+
+>https://appurlshort.herokuapp.com/documentation/
 
 ![Panel](https://i.ibb.co/mCdZXRC/2.png)
 
