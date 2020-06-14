@@ -6,8 +6,7 @@ import { ConfigService } from './../shared/config/config.service';
 export const databaseProviders = [
     {
         provide: 'SEQUELIZE',
-        useFactory: async (configService: ConfigService) => {
-            console.log(configService.sequelizeOrmConfig);
+        useFactory: async (configService: ConfigService) => { 
             const sequelize = new Sequelize(configService.sequelizeOrmConfig);
             sequelize.addModels([User, Url]);
             await sequelize.sync();
