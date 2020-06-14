@@ -11,9 +11,10 @@ import {
     CreatedAt,
     UpdatedAt,
     DeletedAt,
-    BelongsTo,
+    BelongsTo
 } from 'sequelize-typescript';
 import { User } from '../users/user.entity';
+
 
 @Table({
     tableName: 'url',
