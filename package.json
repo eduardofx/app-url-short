@@ -1,0 +1,83 @@
+{
+    "name": "nest-sequelize-typescript",
+    "version": "0.0.1",
+    "description": "Nest, JWT, Jest, Swagger, sequelize-typescript",
+    "author": "Eduardo Kawassaki Ferreira",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "db:migrate": "ts-node node_modules/.bin/sequelize db:migrate",
+        "db:drop": "ts-node node_modules/.bin/sequelize db:drop",
+        "db:create": "ts-node node_modules/.bin/sequelize db:create",
+        "db:seed-dev": "ts-node node_modules/.bin/sequelize db:seed:all",
+        "db:seed-prod": "ts-node node_modules/.bin/sequelize db:seed:all --seeders-path db/seeders-prod",
+        "db:reset": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed-dev && npm run db:seed-prod",
+        "start": "ts-node -r tsconfig-paths/register src/main.ts",
+        "start:dev": "nodemon",
+        "start:debug": "nodemon --config nodemon-debug.json",
+        "prestart:prod": "rimraf dist && npm run build",
+        "start:prod": "node dist/main.js",
+        "lint": "tslint -p tsconfig.json -c tslint.json",
+        "test": "jest --config ./test/jest-e2e.json"
+    },
+    "dependencies": {
+        "@nestjs/common": "^6.0.0",
+        "@nestjs/config": "^0.5.0",
+        "@nestjs/core": "^6.0.0",
+        "@nestjs/passport": "^6.0.0",
+        "@nestjs/platform-express": "^6.0.0",
+        "@nestjs/swagger": "3.0.2",
+        "@types/bcrypt": "^3.0.0",
+        "@types/dotenv": "^8.2.0",
+        "@types/jsonwebtoken": "^8.3.2",
+        "@types/passport-jwt": "^3.0.1",
+        "bcrypt": "^3.0.6",
+        "class-transformer": "^0.2.0",
+        "class-validator": "^0.9.1",
+        "dotenv": "^8.2.0",
+        "jsonwebtoken": "^8.5.1",
+        "nanoid": "^3.1.10",
+        "passport": "^0.4.0",
+        "passport-jwt": "^4.0.0",
+        "pg": "^7.10.0",
+        "reflect-metadata": "^0.1.12",
+        "rimraf": "^2.6.2",
+        "rxjs": "^6.3.3",
+        "sequelize": "^5.7.5",
+        "sequelize-cli": "^5.4.0",
+        "sequelize-typescript": "^0.6.10",
+        "swagger-ui-express": "4.0.2"
+    },
+    "devDependencies": {
+        "@nestjs/testing": "latest",
+        "@types/express": "latest",
+        "@types/jest": "latest",
+        "@types/node": "latest",
+        "@types/sequelize": "latest",
+        "@types/supertest": "latest",
+        "jest": "latest",
+        "nodemon": "latest",
+        "prettier": "latest",
+        "supertest": "latest",
+        "ts-jest": "latest",
+        "ts-node": "latest",
+        "tsconfig-paths": "latest",
+        "tslint": "latest",
+        "typescript": "latest"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": "src",
+        "testRegex": ".spec.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "coverageDirectory": "../coverage",
+        "testEnvironment": "node"
+    }
+}
