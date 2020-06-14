@@ -1,6 +1,9 @@
 {
     "name": "nest-sequelize-typescript",
     "version": "0.0.1",
+    "engines": {
+        "node": "12.16.1"
+    },
     "description": "Nest, JWT, Jest, Swagger, sequelize-typescript",
     "author": "Eduardo Kawassaki Ferreira",
     "license": "MIT",
